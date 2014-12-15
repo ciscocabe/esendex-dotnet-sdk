@@ -10,7 +10,9 @@ namespace com.esendex.sdk.messaging
     [Serializable]
     [XmlRoot("message")]
     public class SmsMessage : Message
-    {
+    {        
+        private CharacterSetType characterSetType = CharacterSetType.GSM;
+
         /// <summary>
         /// Initialises a new instance of the com.esendex.sdk.messaging.SmsMessage
         /// </summary>
@@ -34,6 +36,16 @@ namespace com.esendex.sdk.messaging
         {
             get { return MessageType.SMS; }
             set { }
+        }
+
+        /// <summary>
+        /// Get or set the character set of the message. The default value is GSM
+        /// </summary>
+        [XmlElement("characterset")]
+        public CharacterSetType CharacterSet 
+        {
+            get { return characterSetType; }
+            set { characterSetType = value; }
         }
 
         /// <summary>
